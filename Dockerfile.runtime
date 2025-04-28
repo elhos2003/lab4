@@ -1,0 +1,19 @@
+# Dockerfile.runtime
+FROM node:18-alpine AS runtime
+
+# Create non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+WORKDIR /app
+
+COPY --from=build /app ./
+
+RUN npm ci --only=production \
+  && npm cache clean --force \
+  && rm -rf /tmp/*
+
+USER appuser
+
+ENV NODE_ENV=production
+EXPOSE 3000
+CMD ["node", "src/index.js"]

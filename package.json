@@ -1,0 +1,16 @@
+{
+    "name": "lab4",
+    "version": "1.0.0",
+    "description": "Lab 4 Project",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "node src/index.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2"
+    },
+    "devDependencies": {},
+    "author": "",
+    "license": "ISC"
+  }
+  

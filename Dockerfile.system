@@ -1,0 +1,5 @@
+# Dockerfile.system
+FROM node:18-alpine AS system
+
+# Add only what's necessary for build env
+RUN apk add --no-cache bash && rm -rf /var/cache/apk/*
